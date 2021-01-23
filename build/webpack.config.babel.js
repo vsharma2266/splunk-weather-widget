@@ -1,3 +1,4 @@
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
@@ -78,6 +79,11 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
+    new CopyWebpackPlugin({
+      patterns: [
+        {from: 'src/assets', to: 'assets', noErrorOnMissing: true}
+      ]
+    }),
     new HtmlWebpackPlugin({
       inject: true,
       template: path.resolve(__dirname, '../src/index.html'),

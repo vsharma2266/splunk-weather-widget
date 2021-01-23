@@ -1,10 +1,9 @@
 import './styles/Location.scss';
 
 import PropTypes from 'prop-types';
-import {useEffect, useState} from 'react';
 
 const Location = ({location, weather}) => {
-  const {postcode, state_code, town, country} = location;
+  const {postcode, state_code, town} = location;
   const date = new Date();
   const day = date.getDay();
   const hour = date.getHours();
@@ -14,15 +13,19 @@ const Location = ({location, weather}) => {
   const currentWeather = weather.current.weather[0].main;
 
   return (
-    <>
+    <div>
       <div className='location-address location-color'>
         {town}, {state_code} {postcode}
       </div>
       <div className='location-time location-color'>
         {days[day]} {hr || 12}:00 {currentMeridian}
       </div>
-      <div className='location-weather location-color'>{currentWeather}</div>
-    </>
+      <div
+        aria-label={`Current weather is ${currentWeather}`}
+        className='location-weather location-color'>
+        {currentWeather}
+      </div>
+    </div>
   );
 };
 

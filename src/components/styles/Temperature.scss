@@ -1,0 +1,28 @@
+.temp-container {
+  display: flex;
+}
+
+.temp-number {
+  color: #000;
+  font-size: 48px;
+}
+
+.temp-scale {
+  display: flex;
+  font-size: 14px;
+  margin-left: 4px;
+
+  .temp-divider {
+    margin: 0 4px;
+  }
+
+  a {
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      outline: 1px solid;
+      outline-offset: 2px;
+    }
+  }
+}

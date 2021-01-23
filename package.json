@@ -10,7 +10,7 @@
     "type": "git"
   },
   "scripts": {
-    "build": "webpack --config ./webpack.config.babel.js",
+    "build": "webpack --config ./build/webpack.config.babel.js",
     "eslint": "eslint './src/**/*.js'",
     "eslint:fix": "eslint './src/**/*.js' --fix",
     "sasslint": "stylelint './src/**/*.scss'",
@@ -32,6 +32,7 @@
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^6.4.1",
     "css-loader": "^5.0.1",
     "eslint": "^7.18.0",
     "eslint-config-prettier": "^7.2.0",
@@ -51,6 +52,7 @@
     "node-sass": "^4.0.0",
     "postcss-loader": "^3.0.0",
     "prettier": "^2.2.1",
+    "prop-types": "^15.7.2",
     "sass-loader": "^8.0.2",
     "stylelint": "^13.9.0",
     "stylelint-config-standard": "^20.0.0",

@@ -15,7 +15,8 @@
     "eslint:fix": "eslint './src/**/*.js' --fix",
     "sasslint": "stylelint './src/**/*.scss'",
     "sasslint:fix": "stylelint './src/**/*.scss' --fix",
-    "start": "webpack-dev-server --config ./build/webpack.config.babel.js"
+    "start": "webpack-dev-server --config ./build/webpack.config.babel.js",
+    "bs": "npm i && npm run start"
   },
   "keywords": [],
   "author": "Varun",

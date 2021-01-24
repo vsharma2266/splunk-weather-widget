@@ -1,3 +1,5 @@
+import './AppWrappers.scss';
+
 import {useEffect, useState} from 'react';
 import WeatherWidget from '../../components/WeatherWidget';
 import {getGeoLocation, geoCoding} from '../../services/geoLocation';
@@ -32,7 +34,21 @@ const AppWrapper = () => {
   }, [currentCoordinates]);
 
   if (!currentLocation || !currentWeather) {
-    return null;
+    return (
+      <div
+        role='progressbar'
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-valuenow={50}
+        aria-valuetext='Loading content...'
+        className='cs-loader-container'
+        aria-labelledby='spinner'
+        data-testid='cs-loader-component'>
+        <div className='loading' id='spinner'>
+          Loading...
+        </div>
+      </div>
+    );
   }
 
   return <WeatherWidget weather={currentWeather} location={currentLocation} />;

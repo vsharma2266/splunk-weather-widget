@@ -1,8 +1,3 @@
-import {useEffect, useState} from 'react';
-
-const HourlyWeather = props => {
-  console.log(props);
-  return null;
-};
+const HourlyWeather = () => null;
 
 export default HourlyWeather;

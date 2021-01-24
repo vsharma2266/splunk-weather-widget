@@ -1,19 +1,13 @@
+import PropTypes from 'prop-types';
 import './styles/Temperature.scss';
-import {useEffect, useState} from 'react';
+import {kelvin2CAndF} from '../utils/temperature';
+import {scales} from '../common/constants';
 
-const Temperature = ({temp}) => {
-  const scales = {celsius: 'C', fahrenheit: 'F'};
-  const [currentScale, setScale] = useState([scales.celsius, scales.fahrenheit]);
+const Temperature = ({temp, onClickScale, currentScale}) => {
   if (!temp) {
     return null;
   }
-  const inF = (temp - 273.15) * 1.8 + 32;
-  const inC = temp - 273.15;
-
-  function onClickScale(e) {
-    e.preventDefault();
-    setScale([currentScale[1], currentScale[0]]);
-  }
+  const {[scales.celsius]: inC, [[scales.fahrenheit]]: inF} = kelvin2CAndF(temp);
 
   function linkOrText(scale) {
     if (scale !== currentScale[0]) {
@@ -45,6 +39,12 @@ const Temperature = ({temp}) => {
       </div>
     </div>
   );
+};
+
+Temperature.propTypes = {
+  currentScale: PropTypes.array,
+  onClickScale: PropTypes.func,
+  temp: PropTypes.number
 };
 
 export default Temperature;

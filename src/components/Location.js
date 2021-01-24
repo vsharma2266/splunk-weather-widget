@@ -1,13 +1,13 @@
 import './styles/Location.scss';
 
 import PropTypes from 'prop-types';
+import {days} from '../common/constants';
 
 const Location = ({location, weather}) => {
   const {postcode, state_code, town} = location;
   const date = new Date();
   const day = date.getDay();
   const hour = date.getHours();
-  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const currentMeridian = hour >= 12 ? 'PM' : 'AM';
   const hr = hour > 12 ? hour - 12 : hour;
   const currentWeather = weather.current.weather[0].main;

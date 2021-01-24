@@ -1,6 +1,6 @@
 import './styles/Conditions.scss';
 
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
 const Conditions = ({weather}) => (
   <div className='conditions-container'>
@@ -13,8 +13,8 @@ const Conditions = ({weather}) => (
 Conditions.propTypes = {
   weather: PropTypes.shape({
     current: PropTypes.shape({
-      humidity: PropTypes.string,
-      wind_speed: PropTypes.string
+      humidity: PropTypes.number,
+      wind_speed: PropTypes.number
     })
   })
 };

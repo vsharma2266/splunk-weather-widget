@@ -15,8 +15,9 @@ module.exports = {
     },
     sourceType: 'module'
   },
-  ignorePatterns: ['dist/**', 'node_modules', 'build/**'],
+  ignorePatterns: ['dist/**', 'node_modules', 'build/**', '.eslintrc.js'],
   rules: {
+    'node/no-unpublished-import': 0,
     'arrow-body-style': [2, 'as-needed'],
     'arrow-parens': [2, 'as-needed'],
     'arrow-spacing': 2,

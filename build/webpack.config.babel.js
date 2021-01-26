@@ -15,7 +15,7 @@ module.exports = {
     chunkFilename: '[chunkhash].chunk.js'
   },
   devServer: {
-    open: 'Google Chrome',
+    open: 'Firefox',
     port: 3000,
     disableHostCheck: true,
     https: true,

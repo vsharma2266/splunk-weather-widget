@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {days} from '../common/constants';
 
 const Location = ({location, weather}) => {
-  const {postcode, state_code, town} = location;
+  const {postcode, state_code, town, county} = location;
   const date = new Date();
   const day = date.getDay();
   const hour = date.getHours();
@@ -15,7 +15,7 @@ const Location = ({location, weather}) => {
   return (
     <div>
       <div className='location-address location-color'>
-        {town}, {state_code} {postcode}
+        {town || county}, {state_code} {postcode}
       </div>
       <div className='location-time location-color'>
         {days[day]} {hr || 12}:00 {currentMeridian}
@@ -32,6 +32,7 @@ const Location = ({location, weather}) => {
 Location.propTypes = {
   location: PropTypes.shape({
     country: PropTypes.string,
+    county: PropTypes.string,
     postcode: PropTypes.string,
     state_code: PropTypes.string,
     town: PropTypes.string
@@ -41,6 +42,6 @@ Location.propTypes = {
       weather: PropTypes.array
     })
   })
-};
+}
 
 export default Location;

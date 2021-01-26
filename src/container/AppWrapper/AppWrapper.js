@@ -9,6 +9,8 @@ const AppWrapper = () => {
   const [currentCoordinates, setCurrentCoordinates] = useState(null);
   const [currentWeather, setCurrentWeather] = useState(null);
   const [currentLocation, setCurrentLocation] = useState(null);
+  const [hottestWeather, setHottestWeather] = useState(null);
+  const [hottestLocation, setHottestLocation] = useState(null);
 
   useEffect(() => {
     getGeoLocation()
@@ -33,6 +35,18 @@ const AppWrapper = () => {
     }
   }, [currentCoordinates]);
 
+  useEffect(() => {
+    geoCoding({lat: 62.8657307, long: -154.7453284}).then(location => {
+      setHottestLocation(location);
+    });
+  }, []);
+
+  useEffect(() => {
+    getCurrentWeather({lat: 62.8657307, long: -154.7453284}).then(weather =>
+      setHottestWeather(weather)
+    );
+  }, []);
+
   if (!currentLocation || !currentWeather) {
     return (
       <div
@@ -50,8 +64,14 @@ const AppWrapper = () => {
       </div>
     );
   }
-
-  return <WeatherWidget weather={currentWeather} location={currentLocation} />;
+  return (
+    <>
+      <WeatherWidget weather={currentWeather} location={currentLocation} />
+      <div style={{marginTop: '24px'}}>
+        <WeatherWidget weather={hottestWeather} location={hottestLocation} />
+      </div>
+    </>
+  );
 };
 
 export default AppWrapper;

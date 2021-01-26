@@ -42,6 +42,6 @@ Location.propTypes = {
       weather: PropTypes.array
     })
   })
-}
+};
 
 export default Location;

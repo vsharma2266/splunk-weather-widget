@@ -11,8 +11,8 @@ module.exports = {
   output: {
     pathinfo: true,
     path: path.resolve(__dirname, '../dist'),
-    filename: '[name].[chunkhash:8].bundle.js',
-    chunkFilename: '[name].[chunkhash:8].chunk.js'
+    filename: '[chunkhash].bundle.js',
+    chunkFilename: '[chunkhash].chunk.js'
   },
   devServer: {
     open: 'Google Chrome',
